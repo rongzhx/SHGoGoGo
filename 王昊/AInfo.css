@@ -11,6 +11,11 @@ background: -ms-linear-gradient(top,#FFF,#48D1CC);        /* IE 10 */
 background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#FFF), to(#48D1CC));/*谷歌*/ 
 
 } 
+td
+{
+	width:100px;
+}
+
 #napkeeCanvas {
 		position:absolute;
 		top:0px;

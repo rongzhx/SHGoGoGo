@@ -1,6 +1,5 @@
 @CHARSET "UTF-8";
 .linear{ 
-
 width:1500px; 
 height:800px; 
 
@@ -11,6 +10,7 @@ background: -ms-linear-gradient(top,#FFF,#48D1CC);        /* IE 10 */
 background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#FFF), to(#48D1CC));/*è°·æ­Œ*/ 
 
 } 
+
 #napkeeCanvas {
 		position:absolute;
 		top:0px;
@@ -23,7 +23,6 @@ background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#FFF), to(#48D1CC));/*è°
 		position:absolute;
 		white-space: nowrap;
 	}
-	
 #nap0{
 	top:20px;
 	width:100%;
@@ -36,92 +35,27 @@ background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#FFF), to(#48D1CC));/*è°
 	text-align:center;
 	color:#FF9900;
 	white-space: normal;
-}
-	
-#nap1{
-	left:50%;
-	top:163px;
-	width:125px;
-	z-index:1;
-	background-color:#FFFFFF;
-	color:#000000;
-	font-size: 14px;
-	font-style:normal;
-	font-weight:normal;
-	text-decoration:none;
-	text-align:left;
-}
-#nap2{
-	top:164px;
-	left:43%;
-	height:24px;
-	z-index:2;
-	font-size: 16px;
-	font-style:normal;
-	font-weight:normal;
-	text-decoration:none;
-	color:#000000;
-}
-#nap3{
-	left:50%;
-	top:217px;
-	width:125px;
-	z-index:3;
-	background-color:#FFFFFF;
-	color:#000000;
-	font-size: 14px;
-	font-style:normal;
-	font-weight:normal;
-	text-decoration:none;
-	text-align:left;
-}
-	
-#nap4{
-	left:43%;
-	top:218px;
-	width:35.2px;
-	height:24px;
-	z-index:4;
-	font-size: 16px;
-	font-style:normal;
-	font-weight:normal;
-	text-decoration:none;
-	text-align:left;
-	color:#000000;
-}
-	
-#nap5{
-	left:45%;
-	top:285px;
-	z-index:5;
-}
-
-#nap5.napkee {
-	width:81px;
-	height:27px;
-	font-size: 14px;
-	font-style:normal;
-	font-weight:normal;
-	text-decoration:none;
-}
-
+}	
 	
 #nap6{
-	left:53%;
-	top:285px;
-	z-index:6;
+	left:30%;
+	top:150px;
+	width:50%;
+	height:70px;
+	z-index:0;
 }
-
-#nap6.napkee {
-	width:76px;
-	height:27px;
-	font-size: 14px;
-	font-style:normal;
-	font-weight:normal;
-	text-decoration:none;
+#nap7{
+	left:44%;
+	top:220px;
+	z-index:1;
+}
+#nap8{
+	left:41%;
+	top:255px;
+	z-index:1;
 }
 #nap9{
-	width:100%;
-	text-align:center;
+	left:39%;
+	top:290px;
+	z-index:1;
 }
-	

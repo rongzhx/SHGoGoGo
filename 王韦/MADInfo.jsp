@@ -52,6 +52,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</tr>
 		</table>
 		
+		<% 
+				request.setCharacterEncoding("utf-8");
+		%>
 		<form action="TotalServlet"method="post"> 
 			<input name="activity_name" type="hidden" value=<jsp:getProperty name="regActivity" property="activity_name"/> />
             <input id="nap7" class="napkeeComponent napkeeButton btn" name="Submit" type="submit" value="查看报名者详情" />

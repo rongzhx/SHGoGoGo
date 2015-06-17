@@ -45,7 +45,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    <td>活动类型：</td>
 			<td><input name="activity_type" type="checkbox" value="学术"/>学术
 			<input name="activity_type" type="checkbox" value="体育"/>体育
-			<input name="activity_type" type="checkbox" value="公益"/>公益</td>
+			<input name="activity_type" type="checkbox" value="公益"/>公益
+			<input name="activity_type" type="checkbox" value="游戏"/>游戏
+			<input name="activity_type" type="checkbox" value="舞蹈"/>舞蹈
+			<input name="activity_type" type="checkbox" value="科技"/>科技
+			<input name="activity_type" type="checkbox" value="其他"/>其他</td>
 		</tr>
 		<tr>
 		<td>报名开始时间:</td>

@@ -35,7 +35,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</tr>
 		<tr>
 		<td>活动海报:</td>
-		<td><img src=<jsp:getProperty name="regActivity" property="activity_poster"/>width="80" height="60"></td>
+		<%String poster = regActivity.getActivity_poster(); %>
+		<td><img src=<%=poster%> width="80" height="60"></td>
 		<!-- <input type="image" src="Sophia.jpg" name="activity_img"/></td> -->
 		<!-- <td><input type = "file" name = "tetttt"></td> -->
 		</tr>
@@ -64,6 +65,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	 
 	<br>
 	
-	<input id="nap8" class="napkeeComponent napkeeButton btn" type="button" onclick="window.location.href='AInfo.jsp'" value="返回查看其它活动"> 
+	<input id="nap8" class="napkeeComponent napkeeButton btn" type="button" onclick="window.location.href='AInfoServlet'" value="返回查看其它活动"> 
   </body>
 </html>

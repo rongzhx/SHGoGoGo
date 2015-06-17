@@ -46,7 +46,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    <td>社团类型：</td>
 			<td><input name="club_type" type="checkbox" value="学术"/>学术
 			<input name="club_type" type="checkbox" value="体育"/>体育
-			<input name="club_type" type="checkbox" value="公益"/>公益</td>
+			<input name="club_type" type="checkbox" value="公益"/>公益
+			<input name="club_type" type="checkbox" value="其他"/>其他</td>
 		</tr>
 		</table>
 		<input id="nap20" class="napkeeComponent napkeeButton btn" type="submit" value="确定"/>

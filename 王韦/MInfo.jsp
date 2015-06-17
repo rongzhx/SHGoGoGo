@@ -54,14 +54,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</tr>		
 </table>
 	<div  id="nap7" class="napkeeComponent napkeeCanvas">
-	
+	<% 
+		request.setCharacterEncoding("utf-8");
+	%>
 	贵社团所举办的活动：<br>
 		<table>
 	 <%		 //缺活动详情***************************************************************************** 
 	  	List<String> activities = regManager.getHold_activities();
 	  	for(String a:activities)
 	  	{
-	  	
+	  		System.out.println(a);
 	  %>
 	  	
 	  	<tr>

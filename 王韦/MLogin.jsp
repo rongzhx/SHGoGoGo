@@ -19,21 +19,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="linear"></div>
 	<div id="nap0" class="napkeeComponent napkeeParagraph" cellspacing="0" cellpadding="0">请您登陆以进行相关社团活动的管理<br/></div>
 	<form action="MLoginServlet" method="post">
-		<table id="nap9">
+		<table id="nap6" class="napkeeComponent napkeeCanvas" cellspacing="0" cellpadding="0">
 		<tr>
-			<td id="nap2" class="napkeeComponent napkeeLabel ">用户名</td>
-			<td> <input id="nap1" type="text" value="" class="napkeeComponent napkeeTextinput" name="club_name" /> </td>
+			<td>用户名</td>
+			<td> <input type="text" value=""  name="club_name" /> </td>
 		</tr>
 		<tr>
-			<td id="nap4" class="napkeeComponent napkeeLabel ">密码</td>
-			<td> <input id="nap3" value="" class="napkeeComponent napkeeTextinput" type="password" name="manager_password" /></td>
+			<td>密码</td>
+			<td> <input type="password" name="manager_password" /></td>
 		</tr>
 		</table>
-		<input id="nap5" class="napkeeComponent napkeeButton btn" type="submit" value="登陆"/>
+		<input id="nap7" class="napkeeComponent napkeeButton btn" type="submit" value="登录"/>
 	</form>
-	<form action="MRegister.jsp">
-		<input id="nap6" class="napkeeComponent napkeeButton btn"type="submit" value="我要注册"/>
+	<form action="SLogin.jsp">
+		<input id="nap8" class="napkeeComponent napkeeButton btn" type="submit" value="转去学生登录"/>
 	</form>
-
+	<a id="nap9" class="napkeeComponent" href="Register.jsp">没有账号，去注册</a>
+	</form>
   </body>
 </html>

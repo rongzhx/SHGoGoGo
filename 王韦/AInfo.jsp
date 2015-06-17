@@ -29,12 +29,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<h1 id="nap0" class="napkeeComponent napkeeParagraph">当前正在进行的社团活动</h1>
 	<table id="nap6" class="napkeeComponent napkeeCanvas">
 	<tr>
-		<td><input name ="sort_type" type="button"onclick="window.location.href='MLoginServlet'" value="活动名称"></td>
+	  	<td><a href="SoServlet?sort_type=activity_name">活动名称</a></td>
 		<td>活动海报</td>
-		<td><input name ="sort_type" type="button"onclick="window.location.href='MLoginServlet'" value="报名开始时间"></td>
-		<td><input name ="sort_type" type="button"onclick="window.location.href='MLoginServlet'" value="报名截止时间"></td>
-		<td><input name ="sort_type" type="button"onclick="window.location.href='MLoginServlet'" value="活动组织者"></td>
-		<td><input name ="sort_type" type="button"onclick="window.location.href='MLoginServlet'" value="活动类型"></td>
+		<td><a href="SoServlet?sort_type=start_time">报名开始时间</a></td>
+		<td><a href="SoServlet?sort_type=end_time">报名截止时间</a></td>
+		<td><a href="SoServlet?sort_type=club_name">活动组织者</a></td>
+		<td><a href="SoServlet?sort_type=activity_type">活动类型</a></td>
 		<td>查看详情</td>
 	</tr>
 	 <%		 //缺活动详情***************************************************************************** 

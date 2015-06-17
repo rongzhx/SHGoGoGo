@@ -1,0 +1,102 @@
+@CHARSET "UTF-8";
+.linear{ 
+
+width:1500px; 
+height:800px; 
+
+FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#FFF,endColorStr=#48D1CC); /*IE 6 7 8*/ 
+
+background: -ms-linear-gradient(top,#FFF,#48D1CC);        /* IE 10 */
+
+background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#FFF), to(#48D1CC));/*谷歌*/ 
+
+} 
+#napkeeCanvas {
+		position:absolute;
+		top:0px;
+	}
+	.napkeeComponent {
+		position:absolute;
+		white-space: nowrap;
+	}
+	.napkeeRelativeComponent {
+		position:absolute;
+		white-space: nowrap;
+	}
+	
+#nap1{
+	left:10%;
+	top:47px;
+	width:100%;
+	height:47px;
+	z-index:0;
+	font-size: 40px;
+	font-style:italic;
+	font-weight:bold;
+	text-decoration:none;
+	color:#FF9900;
+	white-space: normal;
+}
+	
+#nap2{
+	left:252px;
+	top:180px;
+	width:363px;
+	z-index:2;
+	background-color:#FFFFFF;
+	color:#000000;
+	font-size: 14px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	text-align:left;
+}
+	
+#nap4{
+	left:30%;
+	top:230px;
+	width:70.4px;
+	height:24px;
+	z-index:3;
+	font-size: 16px;
+	font-style:normal;
+	font-weight:bold;
+	text-decoration:none;
+	text-align:left;
+	color:#000000;
+}
+	
+
+#nap20{
+	left:45%;
+	top:400px;
+	z-index:17;
+}
+
+#nap20.napkee {
+	width:273px;
+	height:60px;
+	color:#000000;
+	font-size: 20px;
+	font-style:normal;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+	
+#nap21{
+	left:40%;
+	top:450px;
+	z-index:18;
+}
+
+#nap21.napkee {
+	width:48px;
+	height:27px;
+	font-size: 14px;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+}
+
+	

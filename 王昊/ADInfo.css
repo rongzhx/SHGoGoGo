@@ -1,0 +1,58 @@
+@CHARSET "UTF-8";
+body{ 
+
+width:1500px; 
+height:800px; 
+
+FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#FFF,endColorStr=#48D1CC); /*IE 6 7 8*/ 
+
+background: -ms-linear-gradient(top,#FFF,#48D1CC);        /* IE 10 */
+
+background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#FFF), to(#48D1CC));/*谷歌*/ 
+
+} 
+#napkeeCanvas {
+		position:absolute;
+		top:0px;
+	}
+	.napkeeComponent {
+		position:absolute;
+		white-space: nowrap;
+	}
+	.napkeeRelativeComponent {
+		position:absolute;
+		white-space: nowrap;
+	}
+	
+	
+#nap0{
+	
+	top:31px;
+	width:100%;
+	height:59px;
+	z-index:0;
+	font-size: 40px;
+	font-style:normal;
+	font-weight:bold;
+	text-decoration:none;
+	text-align:center;
+	color:#FF9900;
+	white-space: normal;
+}
+#nap6{
+	left:30%;
+	top:150px;
+	width:50%;
+	height:184px;
+	z-index:1;
+}
+#nap7{
+	left:48%;
+	top:370px;
+	z-index:2;
+}
+#nap8{
+	left:43%;
+	top:395px;
+	z-index:3;
+}

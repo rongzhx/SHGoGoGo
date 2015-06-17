@@ -25,31 +25,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <table id="nap6" class="napkeeComponent napkeeCanvas">
 	<tr>
 		<td>序号</td>
-		<td><input name ="sort_type" type="button"onclick="window.location.href='MLoginServlet'" value="报名时间"></td>
-		<td><input name ="sort_type" type="button"onclick="window.location.href='MLoginServlet'" value="姓名"></td>
-		<td><input name ="sort_type" type="button"onclick="window.location.href='MLoginServlet'" value="学号"></td>
-		<td><input name ="sort_type" type="button"onclick="window.location.href='MLoginServlet'" value="联系方式"></td>
-		<td><input name ="sort_type" type="button"onclick="window.location.href='MLoginServlet'" value="学校"></td>
-		<td><input name ="sort_type" type="button"onclick="window.location.href='MLoginServlet'" value="学院"></td>
-		<td><input name ="sort_type" type="button"onclick="window.location.href='MLoginServlet'" value="性别"></td>
+		<td><a href="MSoServlet?sort_type=join_time&activity_name=<jsp:getProperty name="ListStudents" property="activity_name"/>">报名时间</a></td>
+		<td><a href="MSoServlet?sort_type=student_name&activity_name=<jsp:getProperty name="ListStudents" property="activity_name"/>">姓名</a></td>
+		<td><a href="MSoServlet?sort_type=student_id&activity_name=<jsp:getProperty name="ListStudents" property="activity_name"/>">学号</a></td>
+		<td><a href="MSoServlet?sort_type=student_phone&activity_name=<jsp:getProperty name="ListStudents" property="activity_name"/>">联系方式</a></td>
+		<td><a href="MSoServlet?sort_type=university&activity_name=<jsp:getProperty name="ListStudents" property="activity_name"/>">学校</a></td>
+		<td><a href="MSoServlet?sort_type=major&activity_name=<jsp:getProperty name="ListStudents" property="activity_name"/>">学院</a></td>
+		<td><a href="MSoServlet?sort_type=sex&activity_name=<jsp:getProperty name="ListStudents" property="activity_name"/>">性别</a></td>
 	</tr>
 	 <%		
 	  	List<Student> studs = ListStudents.getStudents();
-	  	for(Student s:studs)
-	  	{
-	  		int count = 0;
+	  	List<String> jos = ListStudents.getJoin_time();
+	  	int count = 1;
+	  	for(int i = 0;i < studs.size();i++) {
 	  %>
 	 <tr>
 	  <td><%=count%></td>
-	  <td>time:</td>
-	  <td><%=s.getStudent_name()%></td>
-	  <td><%=s.getStudent_id()%></td>
-	  <td><%=s.getStudent_phone()%></td>
-	  <td><%=s.getStudent_university()%></td>
-	  <td><%=s.getStudent_college() %></td>
-	  <td><%=s.getStudent_sex()%></td>
+	  <td><%=jos.get(i)%></td>
+	  <td><%=studs.get(i).getStudent_name()%></td>
+	  <td><%=studs.get(i).getStudent_id()%></td>
+	  <td><%=studs.get(i).getStudent_phone()%></td>
+	  <td><%=studs.get(i).getStudent_university()%></td>
+	  <td><%=studs.get(i).getStudent_college() %></td>
+	  <td><%=studs.get(i).getStudent_sex()%></td>
 	</tr>	
 	  <%
+			count++;
 		}
 	  %>
 	</table>

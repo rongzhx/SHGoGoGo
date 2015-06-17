@@ -46,21 +46,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<td> <input type="text" name="student_phone" /></td>
 		</tr>		
 		<tr>
-			<td>选择所在学校</td>
+			<td>选择所在学校:</td>
 			<td><select name="student_university">
- 			<option value="sysu">中山大学</option>
-  			<option value="gzdx">广州大学</option>
-  			<option value="hnlg">华南理工大学</option>
+ 			<option value="中山大学">中山大学</option>
+  			<option value="广州大学">广州大学</option>
+  			<option value="华南理工大学">华南理工大学</option>
+  			<option value="其他">其他</option>
 			</select></td>
 		</tr>
 		<tr>
-			<td>填写所在学院:</td>
-			<td> <input type="text" name="student_college" /></td>
+			<td>选择所在学院:</td>
+			<td><select name="student_college">
+ 			<option value="软件学院">软件学院</option>
+  			<option value="环境学院">环境学院</option>
+  			<option value="中山医">中山医</option>
+  			<option value="信科院">信科院</option>
+  			<option value="工学院">工学院</option>
+  			<option value="管理学院">管理学院</option>
+  			<option value="传设院">传设院</option>
+  			<option value="资管">资管</option>
+  			<option value="其他">其他</option>
+			</select></td>
 		</tr>
 		<tr>
 			<td>性别:</td>
-			<td>男<input type="radio" checked="checked" name="student_sex" value="male"/>
-			女<input type="radio" name="student_sex" value="female"/></td>
+			<td>男<input type="radio" checked="checked" name="student_sex" value="男"/>
+			女<input type="radio" name="student_sex" value="女"/></td>
 		</tr>
 		</table>
 		<input id="nap7" class="napkeeComponent napkeeButton btn" type="submit" value="确定提交"/>

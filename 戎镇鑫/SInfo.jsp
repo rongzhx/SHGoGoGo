@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <jsp:useBean id="regStudent" class="entity.Student" scope="session"/>
 	<h1 id="nap0" class="napkeeComponent napkeeParagraph">Hi &nbsp;Dear <jsp:getProperty name="regStudent" property="student_nickname"/>
 	 &nbsp;小伙伴</h1>
-	 <table id="nap6" class="napkeeComponent napkeeCanvas">
+	<table id="nap6" class="napkeeComponent napkeeCanvas">
 		<tr>
 			<td>真实姓名</td>
 			<td><jsp:getProperty name="regStudent" property="student_name"/></td>
@@ -51,30 +51,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<td><jsp:getProperty name="regStudent" property="student_sex"/></td>
 		</tr>
 	</table>
-	 <div id="nap1" class="napkeeComponent napkeeParagraph">您已踏足的活动：<br/></div><br>
+	<div  id="nap7" class="napkeeComponent napkeeCanvas">
+	 您已踏足的活动：<br>
+	<table id="nap2" class="napkeeComponent napkeeCanvas">
 	  <% 
 	  	List<String> activities = regStudent.getJoin_activities();
 	  	for(String a:activities)
 	  	{
 	  	
 	  %>
-	<table id="nap2" class="napkeeComponent napkeeCanvas">
+
 	  	<tr>
 	  	<td>
 		  	 <a href="ADInfoServlet?activity_name=<%=a%>"><%=a%></a>
 		</td>
-		</tr>
-	</table>
-	   
-	  
-	   
+		</tr>   
 	  <%
 		}
 	  %>		
-		
-	<form action="AInfoServlet">
-		<input id="nap7" class="napkeeComponent napkeeButton btn" type="submit" value="去浏览正在进行的活动"/>
-	</form>
-	
+		</table>	
+		</div>
+
+		<input type="button" id="nap8" class="napkeeComponent napkeeButton btn" onclick="window.location.href='AInfoServlet'" value="去浏览正在进行的活动"> 
+		<input type="button" id="nap9" class="napkeeComponent napkeeButton btn" onclick="window.location.href='index.jsp'" value="退出"> 
   </body>
 </html>

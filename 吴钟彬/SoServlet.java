@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 import entity.Activity;
 import entity.ActivityList;
 import entity.Joiner;
+import entity.Hanyu;
 
 @WebServlet("/SoServlet")
 public class SoServlet extends HttpServlet {
@@ -121,7 +122,7 @@ public class SoServlet extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		
 		System.out.println("here is SortServlet");
-		String sort_type = request.getParameter("sort_type");
+		final String sort_type = request.getParameter("sort_type");
 		ActivityList al = new ActivityList();
 		List<Joiner> jn = new ArrayList<Joiner>();
 		Joiner j = new Joiner();
@@ -135,6 +136,7 @@ public class SoServlet extends HttpServlet {
 			try {
 				Class.forName(driver);
 				Connection conn = DriverManager.getConnection(url, user, password);
+				System.out.println(sort_type);
 				if(!conn.isClosed()) 
 		             System.out.println("Succeeded connecting to the Database!");
 				Statement statement = conn.createStatement();
@@ -175,19 +177,20 @@ public class SoServlet extends HttpServlet {
 				templ = al.getActivities();
 				
 				// sort by club_name
-				if(sort_type.compareTo("活动名称") == 0) {
+				if(sort_type.compareTo("activity_name") == 0) {
 					Collections.sort(templ, new Comparator<Activity>() {
 			            public int compare(Activity arg0, Activity arg1) {
 			                Hanyu hanyu = new Hanyu();
 			            	String arg0_name = hanyu.getStringPinYin(arg0.getActivity_name());
 			            	String arg1_name = hanyu.getStringPinYin(arg1.getActivity_name());
+			            	System.out.println(arg0_name + "+" + arg1_name);
 			                return arg0_name.compareTo(arg1_name);
 			            }
 			        });
 				}
 				
 				// sort by start time
-				if(sort_type.compareTo("报名开始时间") == 0) {
+				if(sort_type.compareTo("start_time") == 0) {
 					Collections.sort(templ, new Comparator<Activity>() {
 			            public int compare(Activity arg0, Activity arg1) {
 			            	String arg0_name = arg0.getStart_time();
@@ -198,7 +201,7 @@ public class SoServlet extends HttpServlet {
 				}
 				
 				// sort by end time
-				if(sort_type.compareTo("报名截止时间") == 0) {
+				if(sort_type.compareTo("end_time") == 0) {
 					Collections.sort(templ, new Comparator<Activity>() {
 			            public int compare(Activity arg0, Activity arg1) {
 			            	String arg0_name = arg0.getEnd_time();
@@ -209,23 +212,27 @@ public class SoServlet extends HttpServlet {
 				}
 				
 				// sort by organized club
-				if(sort_type.compareTo("活动组织者") == 0) {
+				if(sort_type.compareTo("club_name") == 0) {
 					Collections.sort(templ, new Comparator<Activity>() {
 			            public int compare(Activity arg0, Activity arg1) {
-			            	String arg0_name = converterToFirstSpell(arg0.getOrganized_club());
-			            	String arg1_name = converterToFirstSpell(arg1.getOrganized_club());
-			                return comp2(arg0_name, arg1_name);
+			            	Hanyu hanyu = new Hanyu();
+			            	String arg0_name = hanyu.getStringPinYin(arg0.getOrganized_club());
+			            	String arg1_name = hanyu.getStringPinYin(arg1.getOrganized_club());
+			            	System.out.println(arg0_name + "+" + arg1_name);
+			            	return arg0_name.compareTo(arg1_name);
 			            }
 			        });
 				}
 				
 				// sort by activity type
-				if(sort_type.compareTo("活动类型") == 0) {
+				if(sort_type.compareTo("activity_type") == 0) {
 					Collections.sort(templ, new Comparator<Activity>() {
 			            public int compare(Activity arg0, Activity arg1) {
-			            	String arg0_name = converterToFirstSpell(tsf(arg0.getActivity_type()));
-			            	String arg1_name = converterToFirstSpell(tsf(arg1.getActivity_type()));
-			                return comp2(arg0_name, arg1_name);
+			            	Hanyu hanyu = new Hanyu();
+			            	String arg0_name = hanyu.getStringPinYin(tsf(arg0.getActivity_type()));
+			            	String arg1_name = hanyu.getStringPinYin(tsf(arg1.getActivity_type()));
+			            	System.out.println(arg0_name + "+" + arg1_name);
+			            	return arg0_name.compareTo(arg1_name);
 			            }
 			        });
 				}

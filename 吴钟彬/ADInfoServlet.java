@@ -74,6 +74,7 @@ public class ADInfoServlet extends HttpServlet {
 		Joiner j = new Joiner();
 		List<Joiner> js = new ArrayList<Joiner>();
 		String name = request.getParameter("activity_name");
+		System.out.println(name);
 		try
 		{
 			String driver = "com.mysql.jdbc.Driver";
@@ -85,6 +86,7 @@ public class ADInfoServlet extends HttpServlet {
 				Connection conn = DriverManager.getConnection(url, user, password);
 				if(!conn.isClosed()) 
 		             System.out.println("Succeeded connecting to the Database!");
+				System.out.println(name);
 				Statement statement = conn.createStatement();
 				String sql = "select * from activity";
 				ResultSet rs = statement.executeQuery(sql);

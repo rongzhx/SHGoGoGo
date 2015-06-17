@@ -71,6 +71,7 @@ public class MLoginServlet extends HttpServlet {
 				ResultSet rs = statement.executeQuery(sql);
 				while(rs.next()) {
 					String name = rs.getString("name");
+					System.out.println("name in database: " + name);
 					if(club_name.compareTo(name) == 0) {
 						String pw = rs.getString("password");
 						System.out.println(pw);

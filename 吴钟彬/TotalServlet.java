@@ -2,11 +2,7 @@ package myservlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,17 +12,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import entity.Activity;
 import entity.Joiner;
+import entity.Student;
+import entity.StudentList;
 
-@WebServlet("/MADInfoServlet")
-public class MADIfoServlet extends HttpServlet {
+@WebServlet("/TotalServlet")
+public class TotalServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	/**
 	 * Constructor of the object.
 	 */
-	public MADIfoServlet() {
+	public TotalServlet() {
 		super();
 	}
 
@@ -58,14 +55,15 @@ public class MADIfoServlet extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("test!!!!!!!!!!!");
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		
-		Activity a = new Activity();
-		Joiner j = new Joiner();
-		List<Joiner> js = new ArrayList<Joiner>();
+		StudentList sl = new StudentList();
+		Student student = new Student();
 		String name = request.getParameter("activity_name");
+		sl.setActivity_name(name);
+		List<Joiner> js = new ArrayList<Joiner>();
+		
 		try
 		{
 			String driver = "com.mysql.jdbc.Driver";
@@ -82,32 +80,48 @@ public class MADIfoServlet extends HttpServlet {
 				String sql = "select * from activity";
 				ResultSet rs = statement.executeQuery(sql);
 				while(rs.next()) {
-					String aname = rs.getString("name");
-					if(name.compareTo(aname) == 0) {
-						a.setActivity_describe(rs.getString("adescibe"));
-						a.setActivity_location(rs.getString("location"));
-						a.setActivity_name(aname);
-						a.setActivity_poster(rs.getString("poster"));
-						a.setActivity_type((rs.getString("type")).split("[+]"));
-						a.setEnd_time(rs.getString("endtime"));
-						a.setStart_time(rs.getString("starttime"));
-						a.setOrganized_club(rs.getString("organized"));
-						a.setJoin_number(String.valueOf(rs.getInt("number")));
-						if((rs.getString("joiner")).compareTo("нч") == 0) {}
-						else {
-							String[] joiners = (rs.getString("joiner")).split("\\|");
-							for(String s: joiners) {
-								String[] attribute = s.split("[+]");
-								j.setJoin_students(attribute[0]);
-								j.setJoin_time(attribute[1]);
-								js.add(j);
-							}
+					String sn = rs.getString("name");
+					if(sn.compareTo(name) == 0) {
+						if(rs.getInt("number") == 0) continue;
+						String sj = rs.getString("joiner");
+						String[] ps = sj.split("\\|");
+						for(String i:ps) {
+							String[] sd = i.split("[+]");
+							Joiner jj = new Joiner();
+							jj.setJoin_students(sd[0]);
+							jj.setJoin_time(sd[1]);
+							js.add(jj);
 						}
-						a.setJoiners(js);
-						request.getSession().setAttribute("regActivity", a);
-						request.getRequestDispatcher("MADInfo.jsp").forward(request, response);
 					}
 				}
+				
+				for(Joiner jtemp:js) System.out.println(jtemp.getJoin_students());
+				
+				for(Joiner jtemp:js) {
+					String sql1 = "select * from studenttable";
+					ResultSet rs1 = statement.executeQuery(sql1);
+					while(rs1.next()) {
+						String ssn = rs1.getString("username");
+						if(ssn.compareTo(jtemp.getJoin_students()) == 0) {
+							student.setStudent_nickname(ssn);
+							student.setStudent_name(rs1.getString("realname"));
+							student.setStudent_university(rs1.getString("university"));
+							student.setStudent_college(rs1.getString("major"));
+							student.setStudent_id(rs1.getString("id"));
+							student.setStudent_phone(rs1.getString("phone"));
+							student.setStudent_sex(rs1.getString("sex"));
+							String[] temp = (rs1.getString("joinactivities")).split("[+]");
+							List<String> ac = new ArrayList<String>();
+							for(String ii : temp) ac.add(ii);
+						    student.setJoin_activities(ac);
+						    sl.addStudents(student);
+							sl.addJoin_time(jtemp.getJoin_time());
+						}
+					}
+				}
+
+				request.getSession().setAttribute("ListStudents", sl);
+				request.getRequestDispatcher("Total.jsp").forward(request, response);
 			} catch(ClassNotFoundException e) {
 				System.out.println("Sorry,can`t find the Driver!"); 
 				e.printStackTrace();
@@ -122,5 +136,4 @@ public class MADIfoServlet extends HttpServlet {
 			ex.printStackTrace();
 		}
 	}
-
 }

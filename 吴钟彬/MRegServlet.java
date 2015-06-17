@@ -46,13 +46,14 @@ public class MRegServlet extends HttpServlet {
 		Manager m = new Manager();
 		String club_name="", club_describe="",manager_password="";
 		String[] club_type={""};
-		//club_icon
+		String club_icon="";
 		try
 		{
 			club_name = request.getParameter("club_name");
 			club_describe = request.getParameter("club_describe");
 			manager_password = request.getParameter("manager_password");
 			club_type = request.getParameterValues("club_type");
+			club_icon = request.getParameter("club_icon");
 			if(club_name!=null)
 				m.setClub_name(club_name);
 			if(club_describe!=null)
@@ -85,7 +86,7 @@ public class MRegServlet extends HttpServlet {
 		        PreparedStatement ps1=conn.prepareStatement(sql1);
 		        System.out.println(sql1);
 			    ps1.setString(1, club_name);
-		        ps1.setString(2, "http://www.baidu.com");
+		        ps1.setString(2, club_icon);
 			    ps1.setString(3, type_final);
 		        ps1.setString(4, club_describe);
 		        ps1.setString(5, manager_password);
